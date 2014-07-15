@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "mo", schema = "", catalog = "test")
-public class Person_Entity {
+public class PersonEntity {
     private String firstName;
     private String lastName;
     private String role;
@@ -47,7 +47,7 @@ public class Person_Entity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Person_Entity personEntity = (Person_Entity) o;
+        PersonEntity personEntity = (PersonEntity) o;
 
         if (firstName != null ? !firstName.equals(personEntity.firstName) : personEntity.firstName != null)
             return false;

@@ -7,10 +7,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-/**
- * Created by Marion on 7/14/2014.
- */
-public class HibernateSession {
+public class HibernateUtiltiy {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
@@ -26,6 +23,11 @@ public class HibernateSession {
         }
     }
 
+    /**
+     * A Hibernate Session for applying configuration settings.
+     * @return Session
+     * @throws HibernateException
+     */
     public static Session getSession() throws HibernateException {
         return ourSessionFactory.openSession();
     }

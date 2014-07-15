@@ -1,16 +1,5 @@
-import DAO.Person_Entity;
-import DAO_Service.PersonIMPL;
-import DAO_Service.PersonService;
-import org.hibernate.HibernateException;
-import org.hibernate.SessionFactory;
-import org.hibernate.Session;
-import org.hibernate.Query;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.metadata.ClassMetadata;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
-
-import java.util.Map;
+import DAO.PersonEntity;
+import DAOService.IMPL.PersonDAOService;
 
 
 public class Main {
@@ -18,8 +7,8 @@ public class Main {
 
     public static void main(final String[] args) throws Exception {
 
-        PersonService service = new PersonIMPL();
-        Person_Entity entity = new Person_Entity();
+        PersonDAOService service = new DAOService.IMPL.PersonDAOService();
+        PersonEntity entity = new PersonEntity();
         entity.setFirstName("Mike");
         entity.setLastName("Mork");
         entity.setRole("Administrator");
