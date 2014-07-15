@@ -11,6 +11,9 @@ public class PersonDAOService implements DAOService.PersonDAOService {
 
         session.beginTransaction();
         PersonEntity person =   (PersonEntity)    session.get(PersonEntity.class, firstName);
+        if (person == null) {
+            return null;
+        }
 session.close();
 
      return person;
@@ -18,6 +21,10 @@ session.close();
 
     @Override
     public String findRoles() {
+
+        Session session = HibernateUtiltiy.getSession();
+        session.beginTransaction();
+
         return null;
     }
 
