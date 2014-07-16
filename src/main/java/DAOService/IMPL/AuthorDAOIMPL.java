@@ -1,16 +1,18 @@
 package DAOService.IMPL;
 
-import DAO.PersonEntity;
+import DAO.AuthorEntity;
+
+import DAOService.AuthorDAOService;
 import Util.HibernateUtiltiy;
 import org.hibernate.Session;
 
-public class PersonDAOService implements DAOService.PersonDAOService {
+public class AuthorDAOIMPL implements AuthorDAOService {
     @Override
-    public PersonEntity find(String firstName) {
+    public AuthorEntity find(String firstName) {
       Session session =  HibernateUtiltiy.getSession();
 
         session.beginTransaction();
-        PersonEntity person =   (PersonEntity)    session.get(PersonEntity.class, firstName);
+        AuthorEntity person =   (AuthorEntity)    session.get(AuthorEntity.class, firstName);
         if (person == null) {
             return null;
         }
@@ -22,14 +24,14 @@ session.close();
     @Override
     public String findRoles() {
 
-        Session session = HibernateUtiltiy.getSession();
+        Session session =HibernateUtiltiy.getSession();
         session.beginTransaction();
 
         return null;
     }
 
     @Override
-    public void createPerson(PersonEntity person) {
+    public void createPerson(AuthorEntity person) {
         Session session = HibernateUtiltiy.getSession();
         session.beginTransaction();
         session.save(person);

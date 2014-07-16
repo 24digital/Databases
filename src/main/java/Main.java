@@ -1,5 +1,7 @@
-import DAO.PersonEntity;
-import DAOService.IMPL.PersonDAOService;
+import DAO.AuthorEntity;
+import DAOService.IMPL.AuthorDAOIMPL;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class Main {
@@ -7,17 +9,18 @@ public class Main {
 
     public static void main(final String[] args) throws Exception {
 
-        PersonDAOService service = new DAOService.IMPL.PersonDAOService();
-        PersonEntity entity = new PersonEntity();
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+
+        AuthorEntity entity = new AuthorEntity();
         entity.setFirstName("Mike");
         entity.setLastName("Mork");
-        entity.setRole("Administrator");
+        entity.setTitle("Administrator");
 
-        service.createPerson(entity);
+AuthorDAOIMPL author = (AuthorDAOIMPL)       context.getBean("service");
+author.createPerson(entity);
 
+   entity =     author.find("Mike");
 
-   entity =     service.find("Mike");
-
-        System.out.println("Found: "+" "+entity.getFirstName()+" "+ entity.getRole());
+        System.out.println("Found: "+" "+entity.getFirstName()+" "+ entity.getTitle());
     }
 }
