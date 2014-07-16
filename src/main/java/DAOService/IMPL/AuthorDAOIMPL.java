@@ -3,7 +3,10 @@ package DAOService.IMPL;
 import DAO.AuthorEntity;
 import DAOService.AuthorDAOService;
 import Util.HibernateUtiltiy;
+import org.hibernate.Query;
 import org.hibernate.Session;
+
+import java.util.List;
 
 public class AuthorDAOIMPL implements AuthorDAOService {
 
@@ -22,12 +25,20 @@ public class AuthorDAOIMPL implements AuthorDAOService {
     }
 
     @Override
-    public String findRoles() {
+    public StringBuilder findRoles() {
 
         Session session = HibernateUtiltiy.getSession();
         session.beginTransaction();
+        Query query = session.createQuery("from AuthorEntity ");
 
-        return null;
+        List<AuthorEntity> list = query.list();
+        StringBuilder builder = new StringBuilder();
+
+        list.stream().forEach((authors) -> {
+            builder.append(authors.getFirstName() + authors.getTitle());
+        });
+        session.close();
+        return builder;
     }
 
     @Override

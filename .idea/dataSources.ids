@@ -8,8 +8,9 @@
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="test"/>
     <table name="mo" schema="" catalog="test" type="TABLE">
-      <column name="firstName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
-      <column name="lastName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="firstName" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Role" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="firstName"/>
     </table>
   </data-source>
@@ -19,6 +20,7 @@
     </database-info>
     <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
     <schema name="APP" catalog=""/>
+    <schema name="ISITFACTUAL" catalog=""/>
     <schema name="NULLID" catalog=""/>
     <schema name="SQLJ" catalog=""/>
     <schema name="SYS" catalog=""/>
@@ -30,6 +32,12 @@
     <schema name="SYSPROC" catalog=""/>
     <schema name="SYSSTAT" catalog=""/>
     <schema name="TEST" catalog=""/>
+    <table name="MO" schema="ISITFACTUAL" catalog="" type="TABLE">
+      <column name="FIRSTNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LASTNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ROLE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="SQL140716135900230" columns="FIRSTNAME"/>
+    </table>
     <table name="SYSALIASES" schema="SYS" catalog="" type="SYSTEM TABLE">
       <column name="ALIASID" sqlType="CHAR" precision="36" scale="0" nullable="false" jdbcType="1"/>
       <column name="ALIAS" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
@@ -274,7 +282,7 @@
       <column name="FIRSTNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="LASTNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="ROLE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="SQL140714140351650" columns="FIRSTNAME"/>
+      <primary-key name="SQL140714140918440" columns="FIRSTNAME"/>
     </table>
     <procedure name="INSTALL_JAR" schema="SQLJ" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuSU5TVEFMTF9KQVI=">
       <prototype>

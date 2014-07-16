@@ -7,6 +7,7 @@ import DAO.AuthorEntity;
  */
 public interface AuthorDAOService {
     public AuthorEntity find(String firstName);
-    public String findRoles();
+
+    public StringBuilder findRoles();
     public void createPerson(AuthorEntity person);
 }

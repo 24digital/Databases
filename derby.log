@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Wed Jul 16 12:21:12 EDT 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0147-3ffa-4556-000007bf6d10 
-on database directory C:\Users\Marion\Documents\My Web Site\MySql\derbyDB with class loader sun.misc.Launcher$AppClassLoader@24d46ca6 
+Wed Jul 16 14:22:33 EDT 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0147-4069-6020-0000088454f0 
+on database directory C:\Users\Marion\Documents\My Web Site\MySql\derbyDB with class loader sun.misc.Launcher$AppClassLoader@28a418fc 
 Loaded from file:/C:/Users/Marion/.m2/repository/org/apache/derby/derby/10.10.2.0/derby-10.10.2.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0-b132
