@@ -6,19 +6,19 @@ import javax.persistence.*;
  * Created by Marion on 7/14/2014.
  */
 @Entity
-@Table(name = "mo", schema = "", catalog = "test")
-public class PersonEntity {
+@Table(name = "mo", schema = "", catalog = "isitFactual")
+public class AuthorEntity {
     private String firstName;
     private String lastName;
-    private String role;
+    private String title;
 
     @Column(name = "Role")
-    public String getRole() {
-        return role;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setTitle(String role) {
+        this.title = role;
     }
 
     @Id
@@ -47,11 +47,11 @@ public class PersonEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PersonEntity personEntity = (PersonEntity) o;
+        AuthorEntity authorEntity = (AuthorEntity) o;
 
-        if (firstName != null ? !firstName.equals(personEntity.firstName) : personEntity.firstName != null)
+        if (firstName != null ? !firstName.equals(authorEntity.firstName) : authorEntity.firstName != null)
             return false;
-        if (lastName != null ? !lastName.equals(personEntity.lastName) : personEntity.lastName != null) return false;
+        if (lastName != null ? !lastName.equals(authorEntity.lastName) : authorEntity.lastName != null) return false;
 
         return true;
     }
