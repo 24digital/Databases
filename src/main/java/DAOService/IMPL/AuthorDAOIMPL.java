@@ -3,6 +3,7 @@ package DAOService.IMPL;
 import DAO.AuthorEntity;
 import DAOService.AuthorDAOService;
 import Util.HibernateUtiltiy;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -15,13 +16,29 @@ public class AuthorDAOIMPL implements AuthorDAOService {
         Session session = HibernateUtiltiy.getSession();
 
         session.beginTransaction();
+
+
         AuthorEntity person = (AuthorEntity) session.get(AuthorEntity.class, firstName);
         if (person == null) {
             return null;
         }
         session.close();
 
+
         return person;
+    }
+
+    @Override
+    public StringBuilder getList() {
+        StringBuilder builder = new StringBuilder();
+        Session session = HibernateUtiltiy.getSession();
+        Criteria criteria = session.createCriteria(AuthorEntity.class);
+        List<AuthorEntity> list = criteria.list();
+
+        list.stream().forEach((authors) -> {
+            builder.append(authors.getFirstName() + " " + authors.getLastName() + " " + authors.getTitle() + " ");
+        });
+        return builder;
     }
 
     @Override
