@@ -34,5 +34,11 @@
             <version>1.5.1.RELEASE</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.0.4.RELEASE</version>
+        </dependency>
     </dependencies>
 </project>
