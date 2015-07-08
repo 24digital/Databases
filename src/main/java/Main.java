@@ -3,6 +3,8 @@ import DAOService.IMPL.AuthorDAOIMPL;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Scanner;
+
 
 public class Main {
 
@@ -11,16 +13,29 @@ public class Main {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
-        AuthorEntity entity = new AuthorEntity();
-        entity.setFirstName("Mike");
-        entity.setLastName("Mork");
-        entity.setTitle("Administrator");
+        while (true)
 
-AuthorDAOIMPL author = (AuthorDAOIMPL)       context.getBean("service");
-author.createPerson(entity);
+        {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("First Name:");
+            String firstName = scanner.nextLine();
+            AuthorEntity author = (AuthorEntity) context.getBean("author");
 
-   entity =     author.find("Mike");
+            AuthorEntity entity = new AuthorEntity();
+            entity.setFirstName(firstName);
 
-        System.out.println("Found: "+" "+entity.getFirstName()+" "+ entity.getTitle());
+            System.out.println("Last Name:");
+
+            String lastName = scanner.nextLine();
+            entity.setLastName(lastName);
+            entity.setTitle("Administrator");
+
+            AuthorDAOIMPL authors = (AuthorDAOIMPL) context.getBean("service");
+            authors.createPerson(entity);
+
+            entity = authors.find(firstName);
+
+            System.out.println("Found: " + " " + entity.getFirstName() + " " + entity.getTitle());
+        }
     }
 }
