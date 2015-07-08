@@ -11,10 +11,13 @@ public class HibernateUtiltiy {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
+    /**
+     * Configuration of Hibernate
+     */
     static {
         try {
-            Configuration configuration = new Configuration();
-            configuration.configure();
+            Configuration configuration = new Configuration().configure();
+
 
             serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
             ourSessionFactory = configuration.buildSessionFactory(serviceRegistry);
