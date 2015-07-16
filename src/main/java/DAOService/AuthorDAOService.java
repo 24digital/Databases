@@ -1,6 +1,6 @@
 package DAOService;
 
-import DAO.AuthorEntity;
+import Model.AuthorEntity;
 
 
 public interface AuthorDAOService {

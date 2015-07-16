@@ -1,7 +1,12 @@
-package DAO;
+package DAO.IMPL;
 
+import DAO.Author;
+import DAO.AuthorDAO;
+import Model.AuthorEntity;
 import Util.HibernateUtiltiy;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -15,14 +20,15 @@ public class AuthorDAOIMPL implements AuthorDAO {
         authorEntity.setTitle(author.getRole());
 
         Session session = HibernateUtiltiy.getSession();
-        session.beginTransaction();
+        Transaction tx = session.getTransaction();
+        tx.begin();
         session.save(authorEntity);
-        session.getTransaction().commit();
+        tx.commit();
         session.close();
         return 1;
     }
 
-    public boolean deleteAuthor() {
+    public boolean deleteAuthor(Author author) {
         return false;
     }
 
@@ -44,7 +50,15 @@ public class AuthorDAOIMPL implements AuthorDAO {
         return author;
     }
 
-    public List getAuthors() {
+    public List<Author> getAuthors() {
+        String q = "select * from authors ";
+        Session session = HibernateUtiltiy.getSession();
+
+        SQLQuery query = session.createSQLQuery(q);
+        List<AuthorEntity> list = query.list();
+
+        System.out.println(list);
+
         return null;
     }
 

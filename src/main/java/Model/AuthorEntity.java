@@ -1,4 +1,4 @@
-package DAO;
+package Model;
 
 import javax.persistence.*;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Marion on 7/14/2014.
  */
 @Entity
-@Table(name = "mo", schema = "test", catalog = "isitFactual")
+@Table(name = "authors")
 public class AuthorEntity {
     private String firstName;
     private String lastName;
@@ -61,5 +61,14 @@ public class AuthorEntity {
         int result = firstName != null ? firstName.hashCode() : 0;
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "AuthorEntity{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", title='" + title + '\'' +
+                '}';
     }
 }

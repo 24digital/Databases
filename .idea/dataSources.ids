@@ -6,13 +6,28 @@
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
-    <schema name="" catalog="test"/>
-    <table name="mo" schema="" catalog="test" type="TABLE">
-      <column name="firstName" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="lastName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Role" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="firstName"/>
-    </table>
+    <database-model serializer="dbm" rdbms="MYSQL">
+      <schema id="1" name="test"/>
+      <table id="2" parent="1" name="authors"/>
+      <column id="3" parent="2" name="firstName">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <comment></comment>
+      </column>
+      <column id="4" parent="2" name="lastName">
+        <data-type>varchar(255)</data-type>
+        <comment></comment>
+      </column>
+      <column id="5" parent="2" name="Role">
+        <data-type>varchar(255)</data-type>
+        <comment></comment>
+      </column>
+      <key id="6" parent="2" name="PRIMARY">
+        <columns>firstName</columns>
+        <underlying-index></underlying-index>
+        <primary>1</primary>
+      </key>
+    </database-model>
   </data-source>
   <data-source name="derbyDB" uuid="81528abf-3508-4970-bc7e-48de7707f729">
     <database-info product="Apache Derby" version="10.10.1.1 - (1458268)" jdbc-version="4.1" driver-name="Apache Derby Embedded JDBC Driver" driver-version="10.10.1.1 - (1458268)">
@@ -333,7 +348,9 @@
         <parameter name="vtiArg" sqlType="VARCHAR" precision="65344" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
       </prototype>
     </procedure>
-    <procedure name="SYSCS_CHECKPOINT_DATABASE" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfQ0hFQ0tQT0lOVF9EQVRBQkFTRQ=="/>
+    <procedure name="SYSCS_CHECKPOINT_DATABASE" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfQ0hFQ0tQT0lOVF9EQVRBQkFTRQ==">
+      <prototype/>
+    </procedure>
     <procedure name="SYSCS_COMPRESS_TABLE" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfQ09NUFJFU1NfVEFCTEU=">
       <prototype>
         <parameter name="SCHEMANAME" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
@@ -364,7 +381,9 @@
         <parameter name="userName" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
       </prototype>
     </procedure>
-    <procedure name="SYSCS_EMPTY_STATEMENT_CACHE" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfRU1QVFlfU1RBVEVNRU5UX0NBQ0hF"/>
+    <procedure name="SYSCS_EMPTY_STATEMENT_CACHE" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfRU1QVFlfU1RBVEVNRU5UX0NBQ0hF">
+      <prototype/>
+    </procedure>
     <procedure name="SYSCS_EXPORT_QUERY" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfRVhQT1JUX1FVRVJZ">
       <prototype>
         <parameter name="selectStatement" sqlType="VARCHAR" precision="65344" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
@@ -405,7 +424,9 @@
         <parameter name="lobsFileName" sqlType="VARCHAR" precision="65344" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
       </prototype>
     </procedure>
-    <procedure name="SYSCS_FREEZE_DATABASE" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfRlJFRVpFX0RBVEFCQVNF"/>
+    <procedure name="SYSCS_FREEZE_DATABASE" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfRlJFRVpFX0RBVEFCQVNF">
+      <prototype/>
+    </procedure>
     <procedure name="SYSCS_IMPORT_DATA" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfSU1QT1JUX0RBVEE=">
       <prototype>
         <parameter name="schemaName" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
@@ -463,7 +484,9 @@
         <parameter name="TRUNCATE_END" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" type="1" index="5"/>
       </prototype>
     </procedure>
-    <procedure name="SYSCS_INVALIDATE_STORED_STATEMENTS" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfSU5WQUxJREFURV9TVE9SRURfU1RBVEVNRU5UUw=="/>
+    <procedure name="SYSCS_INVALIDATE_STORED_STATEMENTS" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfSU5WQUxJREFURV9TVE9SRURfU1RBVEVNRU5UUw==">
+      <prototype/>
+    </procedure>
     <procedure name="SYSCS_MODIFY_PASSWORD" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfTU9ESUZZX1BBU1NXT1JE">
       <prototype>
         <parameter name="password" sqlType="VARCHAR" precision="65344" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
@@ -476,7 +499,9 @@
         <parameter name="optionalArgs" sqlType="VARCHAR" precision="65344" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
       </prototype>
     </procedure>
-    <procedure name="SYSCS_RELOAD_SECURITY_POLICY" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfUkVMT0FEX1NFQ1VSSVRZX1BPTElDWQ=="/>
+    <procedure name="SYSCS_RELOAD_SECURITY_POLICY" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfUkVMT0FEX1NFQ1VSSVRZX1BPTElDWQ==">
+      <prototype/>
+    </procedure>
     <procedure name="SYSCS_RESET_PASSWORD" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfUkVTRVRfUEFTU1dPUkQ=">
       <prototype>
         <parameter name="userName" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
@@ -515,7 +540,9 @@
         <parameter name="SCHEMANAME" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
       </prototype>
     </procedure>
-    <procedure name="SYSCS_UNFREEZE_DATABASE" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfVU5GUkVFWkVfREFUQUJBU0U="/>
+    <procedure name="SYSCS_UNFREEZE_DATABASE" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfVU5GUkVFWkVfREFUQUJBU0U=">
+      <prototype/>
+    </procedure>
     <procedure name="SYSCS_UPDATE_STATISTICS" schema="SYSCS_UTIL" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1lTQ1NfVVBEQVRFX1NUQVRJU1RJQ1M=">
       <prototype>
         <parameter name="SCHEMANAME" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
@@ -561,7 +588,9 @@
         <parameter name="LEN" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" type="1" index="2"/>
       </prototype>
     </procedure>
-    <procedure name="METADATA" schema="SYSIBM" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuTUVUQURBVEE="/>
+    <procedure name="METADATA" schema="SYSIBM" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuTUVUQURBVEE=">
+      <prototype/>
+    </procedure>
     <procedure name="SQLCAMESSAGE" schema="SYSIBM" catalog="" type="1" remarks="b3JnLmFwYWNoZS5kZXJieS5jYXRhbG9nLlN5c3RlbVByb2NlZHVyZXMuU1FMQ0FNRVNTQUdF">
       <prototype>
         <parameter name="SQLCODE" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>

@@ -1,4 +1,4 @@
-package DAO;
+package Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

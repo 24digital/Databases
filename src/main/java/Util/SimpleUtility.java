@@ -1,4 +1,4 @@
-package DAO;
+package Util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

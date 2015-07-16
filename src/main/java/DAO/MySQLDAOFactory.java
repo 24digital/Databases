@@ -1,11 +1,11 @@
 package DAO;
 
-/**
- * Created by Marion on 7/8/2015.
- */
+import DAO.IMPL.AuthorDAOIMPL;
+
+
 public class MySQLDAOFactory extends DAOFactory {
     @Override
     public AuthorDAO getAuthorDAO() {
-        return null;
+        return new AuthorDAOIMPL();
     }
 }
