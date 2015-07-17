@@ -1,5 +1,7 @@
-package DAO;
+package dao.factory;
 
+
+import dao.AuthorDAO;
 
 public abstract class DAOFactory {
     //DAOs supported by the factory
@@ -14,6 +16,6 @@ public abstract class DAOFactory {
         }
     }
 
-    //Concrete DAO
+    //Concrete dao
     public abstract AuthorDAO getAuthorDAO();
 }

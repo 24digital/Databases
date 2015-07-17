@@ -1,4 +1,4 @@
-package DAO;
+package tao;
 
 import java.io.Serializable;
 
@@ -6,9 +6,9 @@ import java.io.Serializable;
  * Created by Marion on 7/8/2015.
  */
 public class Author implements Serializable {
-    String firstName;
-    String lastName;
-    String role;
+    private String firstName;
+    private String lastName;
+    private String role;
 
     public String getFirstName() {
         return firstName;

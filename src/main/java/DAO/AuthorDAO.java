@@ -1,4 +1,6 @@
-package DAO;
+package dao;
+
+import tao.Author;
 
 import java.util.List;
 public interface AuthorDAO {

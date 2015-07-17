@@ -1,6 +1,6 @@
-import DAO.Author;
-import DAO.AuthorDAO;
-import DAO.DAOFactory;
+import dao.AuthorDAO;
+import dao.factory.DAOFactory;
+import tao.Author;
 
 import java.util.List;
 import java.util.Scanner;
@@ -15,11 +15,20 @@ public class Main {
 
 
             Scanner scanner = new Scanner(System.in);
-        System.out.println("Press 1 to print out list\n Press 2 to insert name");
-        if (scanner.nextInt() == 2) {
+        System.out.println("Press 1 to print out list\n Press 2 to insert name\n Press 3 to find author");
+
+        Integer selection = scanner.nextInt();
+        if (selection == 2) {
             userInsert();
             return;
+
         }
+        if (selection == 3) {
+            finder();
+            return;
+
+        }
+
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
         AuthorDAO auth = factory.getAuthorDAO();
 
@@ -50,5 +59,16 @@ public class Main {
 
         auth.insertAuthor(author);
 
+    }
+
+    public static void finder() {
+        System.out.println("Enter first anme");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+        AuthorDAO auth = factory.getAuthorDAO();
+
+        Author person = auth.findAuthor(name);
+        System.out.println(person.getFirstName() + " " + person.getLastName());
     }
 }

@@ -1,6 +1,7 @@
-package DAO;
+package dao.factory;
 
-import DAO.IMPL.AuthorDAOIMPL;
+import dao.AuthorDAO;
+import dao.impl.AuthorDAOIMPL;
 
 
 public class MySQLDAOFactory extends DAOFactory {
